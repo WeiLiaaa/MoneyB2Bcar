@@ -1,4 +1,5 @@
 package com.liwei.moneyb2bcar;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.liwei.moneyb2bcar.fragment.FragmentCart;
+import com.liwei.moneyb2bcar.fragment.FragmentClasst;
+import com.liwei.moneyb2bcar.fragment.FragmentHome;
+import com.liwei.moneyb2bcar.fragment.FragmentMain;
 
 /**
  * Created by wu  suo  wei on 2017/4/11.
@@ -29,15 +35,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout main_class;
     private ImageView main_class_image;
     private TextView main_class_tv;
-    private LinearLayout main_care;
-    private ImageView main_care_image;
-    private TextView main_care_tv;
     private LinearLayout main_cart;
     private ImageView main_cart_image;
     private TextView main_cart_tv;
     private LinearLayout main_main;
     private ImageView main_main_image;
     private TextView main_main_tv;
+    private FragmentHome home;
+    private FragmentMain main;
+    private FragmentClasst fclass;
+    private FragmentCart cart;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,10 +73,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         main_main_image = (ImageView) findViewById(R.id.main_main_image);
         main_main_tv = (TextView) findViewById(R.id.main_main_tv);
         //默认显示首页
-        /*if (home == null) {
-            //home = new FragmentHome();
-        }*/
-       // showFragment(home);
+        if (home == null) {
+            home = new FragmentHome();
+        }
+        showFragment(home);
         //按钮的点击事件
         main_home.setOnClickListener(this);
         main_class.setOnClickListener(this);
@@ -84,10 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             //点击首页
             case R.id.main_home:
-               /* if (home == null) {
+                if (home == null) {
                     home = new FragmentHome();
                 }
-                showFragment(home);*/
+                showFragment(home);
                 //修改图片和textView的颜色
                 main_home_image.setImageResource(R.mipmap.main_index_my_home_p);
                 main_home_tv.setTextColor(Color.parseColor("#00ffff"));
@@ -95,16 +102,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 main_class_image.setImageResource(R.mipmap.main_index_my_class_n);
                 main_class_tv.setTextColor(Color.parseColor("#000000"));
 
+                main_cart_image.setImageResource(R.mipmap.main_index_my_cart_n);
+                main_cart_tv.setTextColor(Color.parseColor("#000000"));
 
                 main_main_image.setImageResource(R.mipmap.main_index_my_mine_n);
                 main_main_tv.setTextColor(Color.parseColor("#000000"));
                 break;
             //点击分类
             case R.id.main_class:
-                /*if (fclass == null) {
-                    fclass = new FragmentClass();
+                if (fclass == null) {
+                    fclass = new FragmentClasst();
                 }
-                showFragment(fclass);*/
+                showFragment(fclass);
                 //修改图片和textView的颜色
                 main_home_image.setImageResource(R.mipmap.main_index_my_home_n);
                 main_home_tv.setTextColor(Color.parseColor("#000000"));
@@ -112,6 +121,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 main_class_image.setImageResource(R.mipmap.main_index_my_class_p);
                 main_class_tv.setTextColor(Color.parseColor("#00ffff"));
 
+                main_cart_image.setImageResource(R.mipmap.main_index_my_cart_n);
+                main_cart_tv.setTextColor(Color.parseColor("#000000"));
 
                 main_main_image.setImageResource(R.mipmap.main_index_my_mine_n);
                 main_main_tv.setTextColor(Color.parseColor("#000000"));
@@ -119,16 +130,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             //点击购物车      实现的是一个跳转到购物车啊activity界面
             case R.id.main_cart:
-                /*Intent in=new Intent(MainActivity.this,CartActivity.class);
-                //跳转
-                startActivity(in);*/
+                if (cart == null) {
+                    cart = new FragmentCart();
+                }
+                showFragment(cart);
+                main_home_image.setImageResource(R.mipmap.main_index_my_home_n);
+                main_home_tv.setTextColor(Color.parseColor("#000000"));
+
+                main_class_image.setImageResource(R.mipmap.main_index_my_class_n);
+                main_class_tv.setTextColor(Color.parseColor("#000000"));
+
+                main_cart_image.setImageResource(R.mipmap.main_index_my_cart_p);
+                main_cart_tv.setTextColor(Color.parseColor("#00ffff"));
+
+                main_main_image.setImageResource(R.mipmap.main_index_my_mine_n);
+                main_main_tv.setTextColor(Color.parseColor("#000000"));
                 break;
             //点击个人中心
             case R.id.main_main:
-                /*if (main == null) {
+                if (main == null) {
                     main = new FragmentMain();
                 }
-                showFragment(main);*/
+                showFragment(main);
                 //修改图片和textView的颜色
                 main_home_image.setImageResource(R.mipmap.main_index_my_home_n);
                 main_home_tv.setTextColor(Color.parseColor("#000000"));
@@ -136,6 +159,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 main_class_image.setImageResource(R.mipmap.main_index_my_class_n);
                 main_class_tv.setTextColor(Color.parseColor("#000000"));
 
+                main_cart_image.setImageResource(R.mipmap.main_index_my_cart_n);
+                main_cart_tv.setTextColor(Color.parseColor("#000000"));
 
                 main_main_image.setImageResource(R.mipmap.main_index_my_mine_p);
                 main_main_tv.setTextColor(Color.parseColor("#00ffff"));
@@ -143,7 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //使用Fragment 的hide和show展示4个fragment方法
+    /**
+     *  使用Fragment 的hide和show展示4个fragment方法
+     */
     public void showFragment(Fragment f) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -169,7 +196,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onKeyDown(keyCode, event);
     }
 
-    //再按一次后退键退出程序
+    /**
+     *  再按一次后退键退出程序
+     */
     private void exit() {
         if ((System.currentTimeMillis() - clickTime) > 2000) {
             Toast.makeText(getApplicationContext(), "再按一次后退键退出程序",
@@ -179,5 +208,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             this.finish();
             //     System.exit(0);
         }
+    }
+    private class FragmentClass {
     }
 }
