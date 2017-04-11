@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.liwei.moneyb2bcar" >
+
+    <application
+        android:name=".application.MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/yaopin"
+        android:label="药品"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" >
+        </meta-data>
+        <activity android:name=".WelcomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NavigateActivity"/>
+        <activity android:name=".MainActivity"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58ec787dc62dca6bf1001735">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="f6f19c656bcaf46deaca64d72f2a3c3d">
+        </meta-data>
+    </application>
+
+</manifest>
