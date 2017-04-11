@@ -1,4 +1,4 @@
-package com.liwei.moneyb2bcar.utils;
+package com.liwei.moneyb2bcar.common;
 
 import android.support.compat.BuildConfig;
 import android.util.Log;
