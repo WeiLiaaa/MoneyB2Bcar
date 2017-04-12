@@ -14,6 +14,8 @@ public class Home1ViewHolder extends RecyclerView.ViewHolder {
 
     public Banner banner;
 
+
+
     public Home1ViewHolder(View itemView) {
         super(itemView);
         banner = (Banner) itemView.findViewById(R.id.home1_banner);

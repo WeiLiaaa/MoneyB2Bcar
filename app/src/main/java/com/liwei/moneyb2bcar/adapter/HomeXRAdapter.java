@@ -5,10 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.liwei.moneyb2bcar.R;
 import com.liwei.moneyb2bcar.bean.HomeBean;
 import com.liwei.moneyb2bcar.viewholder.GlideImageLoader;
 import com.liwei.moneyb2bcar.viewholder.Home1ViewHolder;
+import com.liwei.moneyb2bcar.viewholder.Home2ViewHolder;
+import com.liwei.moneyb2bcar.viewholder.Home3ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +20,7 @@ import java.util.List;
  * Created by wu  suo  wei on 2017/4/11.
  */
 
-public class HomeXRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HomeXRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private final Context context;
     private List<HomeBean.DatasBean> datas;
     private final int TPYE1 = 0;
@@ -29,6 +32,9 @@ public class HomeXRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private final int TPYE7 = 6;
     private Home1ViewHolder holder1;
     private ArrayList<String> images;
+    private int type;
+    private Home2ViewHolder holder2;
+    private Home3ViewHolder holder3;
 
     public HomeXRAdapter(Context context, List<HomeBean.DatasBean> datas) {
         this.context = context;
@@ -44,30 +50,63 @@ public class HomeXRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                         inflate(R.layout.home1viewholder, parent, false));
                 break;
             case 1:
+                holder = new Home2ViewHolder(LayoutInflater.from(context).
+                        inflate(R.layout.home2viewholder, parent, false));
                 break;
             case 2:
+                holder = new Home3ViewHolder(LayoutInflater.from(context).
+                        inflate(R.layout.home3viewholder, parent, false));
                 break;
-            case 3:
+            /*case 3:
                 break;
             case 4:
                 break;
             case 5:
                 break;
             case 6:
-                break;
+                break;*/
         }
         return holder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        //第一个类型
-        holder1 = (Home1ViewHolder) holder;
+
         switch (getItemViewType(position)) {
             case 0:
+                //第一个类型
+                holder1 = (Home1ViewHolder) holder;
+                //广告栏图片轮播
                 setHome1ViewHolder();
                 break;
+            case 1:
+                holder2 = (Home2ViewHolder) holder;
+                //轮播图下方的5个按钮
+                setHome2ViewHolder();
+                break;
+            case 2:
+                holder3 = (Home3ViewHolder) holder;
+                //新品推荐
+                setHome3ViewHolder();
+
+                break;
         }
+    }
+
+    /**
+     * 新品推荐
+     */
+    private void setHome3ViewHolder() {
+        holder3.title.setText(datas.get(1).getHome1().getTitle());
+        Glide.with(context).load(datas.get(1).getHome1().getImage()).
+                placeholder(R.mipmap.yaopin).into(holder3.image);
+    }
+
+    /**
+     * 轮播图下方的5个按钮
+     */
+    private void setHome2ViewHolder() {
+
     }
 
     /**
@@ -90,27 +129,36 @@ public class HomeXRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public int getItemViewType(int position) {
+
         switch (position) {
             case 0:
-                return TPYE1;
-            /*case 1:
-                return TPYE2;
+                type = TPYE1;
+                break;
+            case 1:
+                type = TPYE2;
+                break;
             case 2:
-                return TPYE3;
-            case 3:
-                return TPYE4;
+                type=TPYE3;
+                break;
+            /*case 3:
+                type=TPYE4;
+                break;
             case 4:
-                return TPYE5;
+                type=TPYE5;
+                break;
             case 5:
-                return TPYE6;
+                type=TPYE6;
+                break;
             case 6:
-                return TPYE7;*/
+                type=TPYE7;
+                break;*/
         }
-        return Integer.parseInt(null);
+        return type;
     }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 3;
     }
+
 }
