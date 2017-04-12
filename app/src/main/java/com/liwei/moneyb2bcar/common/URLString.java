@@ -8,5 +8,5 @@ package com.liwei.moneyb2bcar.common;
 
 public final class URLString {
     //首页的url
-    static final String HOME="http://b2b.htyyao.com/mobile/index.php?act=index&op=index";
+    public static final String HOME="http://b2b.htyyao.com/mobile/index.php?act=index&op=index";
 }

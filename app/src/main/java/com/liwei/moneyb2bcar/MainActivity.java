@@ -209,6 +209,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //     System.exit(0);
         }
     }
-    private class FragmentClass {
-    }
 }

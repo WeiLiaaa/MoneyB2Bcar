@@ -12,15 +12,18 @@ import okhttp3.Response;
 
 /**
  * Created by wu  suo  wei on 2017/4/11.
+ * okhttp网络请求数据
+ * 简单封装
  */
 
 public class OKHttpUrlDemo {
-    public static void getStr(String url, final CallBackString callBackString){
+    //okhttp的get请求
+    public static void getStr( String url, final CallBackString callBackString){
         //创建okHttpClient对象
         OkHttpClient mOkHttpClient = new OkHttpClient();
         //创建一个Request
         final Request request = new Request.Builder()
-                .url("https://github.com/hongyangAndroid")
+                .url(url)
                 .build();
         //new call
         Call call = mOkHttpClient.newCall(request);
@@ -39,4 +42,5 @@ public class OKHttpUrlDemo {
             }
         });
     }
+
 }
