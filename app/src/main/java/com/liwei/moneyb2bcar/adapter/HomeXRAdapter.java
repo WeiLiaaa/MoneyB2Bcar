@@ -164,7 +164,7 @@ public class HomeXRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             public void onItemClick(int position) {
                 Toast.makeText(context,"底部",Toast.LENGTH_SHORT).show();
                 if (home_startItemListener!=null){
-                    home_startItemListener.setItem_ADVstartListener(position);
+                    //home_startItemListener.setItem_ADVstartListener(position);
                 }
             }
         });

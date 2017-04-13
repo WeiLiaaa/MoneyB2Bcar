@@ -92,6 +92,8 @@ public class FragmentHome extends Fragment implements CallBackString {
             @Override
             public void setItem_ADVstartListener(int position) {
                 Intent intent=new Intent(getActivity(), Home_adv_Activity.class);
+                //传递数据
+                intent.putExtra("position",position);
                 startActivity(intent);
             }
         });
