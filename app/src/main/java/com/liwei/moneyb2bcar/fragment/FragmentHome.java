@@ -1,5 +1,6 @@
 package com.liwei.moneyb2bcar.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,10 +14,12 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.liwei.moneyb2bcar.R;
+import com.liwei.moneyb2bcar.activity.Home_adv_Activity;
 import com.liwei.moneyb2bcar.adapter.HomeXRAdapter;
 import com.liwei.moneyb2bcar.bean.HomeBean;
 import com.liwei.moneyb2bcar.common.URLString;
 import com.liwei.moneyb2bcar.interfacepager.CallBackString;
+import com.liwei.moneyb2bcar.interfacepager.Home_startItemListener;
 import com.liwei.moneyb2bcar.utils.OKHttpUrlDemo;
 
 import java.util.List;
@@ -84,6 +87,28 @@ public class FragmentHome extends Fragment implements CallBackString {
         //设置recyclerview的模式
         xrecycerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
         xrecycerView.setAdapter(adapter);
+        adapter.setOnItemListener(new Home_startItemListener() {
+            //广告栏的点击事件
+            @Override
+            public void setItem_ADVstartListener(int position) {
+                Intent intent=new Intent(getActivity(), Home_adv_Activity.class);
+                startActivity(intent);
+            }
+        });
+        //设置上拉加载   下拉刷新
+        xrecycerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                //下拉刷新完成
+                xrecycerView.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                //加载更多完成
+                xrecycerView.loadMoreComplete();
+            }
+        });
     }
     /**
      * 返回data数据

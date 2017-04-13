@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="300dp"
+              android:padding="8dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:id="@+id/home7_item_title"/>
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:id="@+id/home7_item_image"/>
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:id="@+id/home7_item_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/home7_item_count"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/home7_item_price"/>
+
+</LinearLayout>
