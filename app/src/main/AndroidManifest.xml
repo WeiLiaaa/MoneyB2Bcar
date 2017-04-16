@@ -27,6 +27,20 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.Home_adv_Activity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.classactivity.Western"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.classactivity.Contraceptive"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.classactivity.Health"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.classactivity.MedInstrumentation"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.classactivity.NonBiomedicine"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.classactivity.Traditional"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.homeactivity.HomeSeekActivity"
+                  android:screenOrientation="portrait"/>
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58ec787dc62dca6bf1001735">

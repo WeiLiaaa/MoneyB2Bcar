@@ -1,12 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <TextView
+              android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="22222"
-        android:textSize="25sp"/>
+        android:layout_height="35dp"
+        android:background="@color/colorRed"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="分类"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/colorhuise"
+            />
+    </LinearLayout>
 
+    <Button
+        android:background="@color/colorred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="西药"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_margin="10dp"
+        android:id="@+id/class_en"/>
+
+    <Button
+        android:background="@color/colorred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="中药"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:id="@+id/class_ch"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:background="@color/colorred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="保健食品"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:id="@+id/class_baoJian"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:background="@color/colorred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="医疗器械"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:id="@+id/class_yiLiao"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:background="@color/colorred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="计生用品"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:id="@+id/class_jiSheng"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:background="@color/colorred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="非药品"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:id="@+id/class_noYao"
+        android:layout_margin="10dp"/>
 </LinearLayout>

@@ -11,6 +11,7 @@ import com.liwei.moneyb2bcar.R;
 
 /**
  * Created by wu  suo  wei on 2017/4/11.
+ * 个人中心页面
  */
 
 public class FragmentMain extends Fragment {

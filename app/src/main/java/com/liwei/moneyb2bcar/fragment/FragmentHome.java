@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -18,6 +19,7 @@ import com.liwei.moneyb2bcar.activity.Home_adv_Activity;
 import com.liwei.moneyb2bcar.adapter.HomeXRAdapter;
 import com.liwei.moneyb2bcar.bean.HomeBean;
 import com.liwei.moneyb2bcar.common.URLString;
+import com.liwei.moneyb2bcar.fragment.homeactivity.HomeSeekActivity;
 import com.liwei.moneyb2bcar.interfacepager.CallBackString;
 import com.liwei.moneyb2bcar.interfacepager.Home_startItemListener;
 import com.liwei.moneyb2bcar.utils.OKHttpUrlDemo;
@@ -26,9 +28,10 @@ import java.util.List;
 
 /**
  * Created by wu  suo  wei on 2017/4/11.
+ * 首页的数据展示
  */
 
-public class FragmentHome extends Fragment implements CallBackString {
+public class FragmentHome extends Fragment implements CallBackString, View.OnClickListener {
 
     private View view;
     private XRecyclerView xrecycerView;
@@ -47,6 +50,7 @@ public class FragmentHome extends Fragment implements CallBackString {
         }
     };
     private List<HomeBean.DatasBean> datas;
+    private LinearLayout seek;
 
     @Nullable
     @Override
@@ -78,6 +82,10 @@ public class FragmentHome extends Fragment implements CallBackString {
     private void initView() {
         //xrecylerView控件
         xrecycerView = (XRecyclerView) view.findViewById(R.id.home_xrecyclerView);
+        //搜索栏控件
+        seek = (LinearLayout) view.findViewById(R.id.home_seek);
+        //搜索栏的点击事件
+        seek.setOnClickListener(this);
     }
     /**
      * 操作xrecyclerview
@@ -128,5 +136,21 @@ public class FragmentHome extends Fragment implements CallBackString {
         msg.obj=homeBean;
         //handler发送消息
         handler.sendMessage(msg);
+    }
+
+    /**
+     * 点击事件
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            //搜索栏的点击事件
+            case R.id.home_seek:
+                Intent in_seek=new Intent(getActivity(), HomeSeekActivity.class);
+                //跳转到搜索页面
+                startActivity(in_seek);
+                break;
+        }
     }
 }

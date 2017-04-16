@@ -11,6 +11,7 @@ import com.liwei.moneyb2bcar.R;
 
 /**
  * Created by wu  suo  wei on 2017/4/11.
+ * 购物车页面
  */
 
 public class FragmentCart extends Fragment {

@@ -28,7 +28,7 @@ import java.util.List;
 public class Home_adv_Activity extends AppCompatActivity implements CallBackString {
 
     private XRecyclerView recyclerview;
-    private String[] index={"33","36","32"};
+    private String[] index={"33","36","32","34"};
     //广告栏的下标
     private int position;
     private Handler handler=new Handler(){

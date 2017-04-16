@@ -84,6 +84,8 @@ public class Home_adv_ActivityAdapter extends RecyclerView.Adapter<RecyclerView.
         holder2.recyclerview.setLayoutManager(new GridLayoutManager(context,2));
         //设置adapter
         holder2.recyclerview.setAdapter(adapter);
+        //设置焦点
+        holder2.recyclerview.setFocusable(false);
         adapter.notifyDataSetChanged();
         //adapter的点击事件
         adapter.setOnItemClickListener(new MyRecyclerViewItemLongClickListener() {
