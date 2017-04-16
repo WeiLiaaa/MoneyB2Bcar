@@ -24,6 +24,7 @@
         <activity android:name=".NavigateActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
+                  android:launchMode="singleTask"
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.Home_adv_Activity"
                   android:screenOrientation="portrait"/>
