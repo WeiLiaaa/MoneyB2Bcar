@@ -42,6 +42,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".fragment.homeactivity.HomeSeekActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.mainactivity.Login_DengLu"
+                  android:screenOrientation="portrait"/>
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58ec787dc62dca6bf1001735">
